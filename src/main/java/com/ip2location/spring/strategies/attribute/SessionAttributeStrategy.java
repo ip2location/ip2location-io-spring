@@ -1,0 +1,32 @@
+package com.ip2location.spring.strategies.attribute;
+
+import com.google.gson.JsonObject;
+import com.ip2location.spring.IPGeolocationSpring;
+import jakarta.servlet.http.HttpServletRequest;
+
+/**
+ * Class to store and read attribute for each session.
+ */
+public class SessionAttributeStrategy implements AttributeStrategy {
+    /**
+     * Store the response.
+     *
+     * @param request The request that originated from a client to this server.
+     * @param response The JsonObject returned by the IP2Location.io API.
+     */
+    @Override
+    public void storeAttribute(HttpServletRequest request, JsonObject response) {
+        request.getSession().setAttribute(IPGeolocationSpring.ATTRIBUTE_KEY, response);
+    }
+
+    /**
+     * Get the stored response.
+     *
+     * @param request The request that originated from a client to this server.
+     * @return The stored JsonObject returned by the IP2Location.io API.
+     */
+    @Override
+    public JsonObject getAttribute(HttpServletRequest request) {
+        return (JsonObject) request.getSession().getAttribute(IPGeolocationSpring.ATTRIBUTE_KEY);
+    }
+}
