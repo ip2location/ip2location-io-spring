@@ -20,7 +20,7 @@ You'll need an IP2Location.io API key, which you can get by singing up for a fre
 <dependency>
 	<groupId>com.ip2location</groupId>
 	<artifactId>ip2location-io-spring</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 </dependency>
 ```
 
